@@ -56,7 +56,7 @@ Use the rescue prompt when a session already lost context. The next agent should
 
 Installation is intentionally done by an LLM coding agent, not by a fragile shell script.
 
-Paste the install prompt from `prompts/install-with-llm-agent.md` into the agent that manages your project. The agent should read this repo, detect your environment, and install the right edition into the correct instruction file for that project.
+Paste the install prompt from `prompts/install-with-llm-agent.md` into the agent that manages your target project. The agent should read the public Session Guardian repo first, detect your environment, and install the right edition into the correct project instruction file.
 
 Recommended defaults:
 
@@ -70,10 +70,28 @@ Recommended defaults:
 
 Examples are included in `examples/` if you want to see what an installed Guardian section looks like before asking an agent to install it.
 
-## Quick Install Prompt
+## Step 1: Install Session Guardian
+
+Agent-guided install.
+
+Paste this into your LLM coding agent session from the project you want to protect. The agent will read the public Session Guardian install guide first, ask setup questions in chat only if the environment is unclear, then install the right edition into project-level instructions.
 
 ```text
-Install Session Guardian for this project. Read README.md and INSTALL.md first. If this project uses OMO, oh-my-openagent, or oh-my-opencode, install Guardian Lite. Otherwise install Guardian Standalone. Do not modify OMO internals, node_modules, generated plugin files, or hidden agent internals. Prefer project-level agent instruction files such as AGENTS.md. Ensure secrets stay outside git, and do not enable auto-push unless I explicitly approve it for this repo.
+Install and configure Session Guardian by following the instructions here:
+https://raw.githubusercontent.com/michaelxer/session-guardian/refs/heads/master/INSTALL.md
+
+Use this public repository as the source of truth:
+https://github.com/michaelxer/session-guardian
+
+Fetch and read the relevant files from that repository before editing this project, especially README.md, INSTALL.md, the version files, docs/update-safety.md, examples/harness-install-examples.md, and templates/gitignore-additions.txt.
+
+Install it for the current project only. If this project uses OMO, oh-my-openagent, or oh-my-opencode, install Guardian Lite. Otherwise install Guardian Standalone unless you find another existing continuity layer and need to ask me first.
+
+Do not modify OMO internals, node_modules, generated plugin files, hidden agent internals, or package-managed files. Prefer project-level agent instruction files such as AGENTS.md, CLAUDE.md, CODEX.md, or the harness-specific project rules file.
+
+Add the safe ignore rules if they are missing. Do not create a git repo unless I explicitly ask. Do not enable auto-push unless I explicitly approve it for this repo.
+
+After installation, tell me which edition was installed, which files changed, and how to trigger checkpoint, handoff, and rescue behavior.
 ```
 
 ## Files

@@ -3,9 +3,13 @@
 Copy and paste this into the coding agent from the target project.
 
 ```text
-Install Session Guardian for this project.
+Install and configure Session Guardian by following the instructions here:
+https://raw.githubusercontent.com/michaelxer/session-guardian/refs/heads/master/INSTALL.md
 
-Read the Session Guardian repository first:
+Use this public repository as the source of truth:
+https://github.com/michaelxer/session-guardian
+
+Fetch and read these Session Guardian files from the public repository before editing the target project:
 - README.md
 - INSTALL.md
 - versions/session-guardian-lite.md

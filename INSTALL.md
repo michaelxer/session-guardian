@@ -1,16 +1,27 @@
 # Installing Session Guardian
 
-Session Guardian is installed by an LLM coding agent because every harness stores instructions differently. The agent should read this repository, detect the active environment, and place the correct Guardian edition in a project-level instruction file.
+Session Guardian is installed by an LLM coding agent because every harness stores instructions differently. The agent should read the public Session Guardian repository, detect the active environment, and place the correct Guardian edition in a project-level instruction file.
+
+Source repository:
+
+```text
+https://github.com/michaelxer/session-guardian
+```
 
 ## Recommended Install Method
 
 Paste this into your coding agent from the target project:
 
 ```text
-Install Session Guardian for this project.
+Install and configure Session Guardian by following the instructions here:
+https://raw.githubusercontent.com/michaelxer/session-guardian/refs/heads/master/INSTALL.md
 
-Read the Session Guardian repository first:
+Use this public repository as the source of truth:
+https://github.com/michaelxer/session-guardian
+
+Fetch and read these Session Guardian files from the public repository before editing the target project:
 - README.md
+- INSTALL.md
 - versions/session-guardian-lite.md
 - versions/session-guardian-standalone.md
 - docs/update-safety.md
@@ -21,13 +32,15 @@ Detect the active environment:
 - If the project uses OMO / oh-my-openagent / oh-my-opencode, install Guardian Lite.
 - If the project uses Codex CLI, VS Code agent workflows, Cursor, Claude-style agents, or no OMO continuity layer, install Guardian Standalone.
 
-Install rules at project scope, preferably in `AGENTS.md` or the equivalent project instruction file for the current agent harness.
+Install rules for the current project only, preferably in `AGENTS.md` or the equivalent project instruction file for the current agent harness.
 
 Do not modify OMO internals, node_modules, generated plugin files, hidden agent internals, or package-managed files.
 
 Add the safe ignore rules from `templates/gitignore-additions.txt` if they are missing.
 
-Do not enable auto-push unless I explicitly approve it for this repo.
+Do not create a git repo unless I explicitly ask. Do not enable auto-push unless I explicitly approve it for this repo.
+
+After installation, tell me which edition was installed, which files changed, and how to trigger checkpoint, handoff, and rescue behavior.
 ```
 
 ## What The Agent Should Do
