@@ -4,10 +4,10 @@ Copy and paste this into the coding agent from the target project.
 
 ```text
 Install and configure Aegis Trail by following the instructions here:
-https://raw.githubusercontent.com/michaelxer/session-guardian/refs/heads/master/INSTALL.md
+https://raw.githubusercontent.com/michaelxer/aegis-trail/refs/heads/main/INSTALL.md
 
 Use this public repository as the source of truth:
-https://github.com/michaelxer/session-guardian
+https://github.com/michaelxer/aegis-trail
 
 Fetch and read these Aegis Trail files from the public repository before editing the target project:
 - README.md
@@ -27,6 +27,11 @@ If the project uses Magic Context by CortexKit:
 - Do not install Aegis Trail Standalone context heuristics.
 - Do not copy, vendor, fork, replace, or patch Magic Context. Use CortexKit upstream separately.
 - Never write real secrets or private customer data into `ctx_memory`, `ctx_note`, summaries, prompts, handoffs, or commits.
+
+If Magic Context is not already installed:
+- Do not install Magic Context automatically by default.
+- Do not copy Magic Context files into this project.
+- If the user explicitly asks for Magic Context too, install it separately from CortexKit upstream first, then install Aegis Trail Lite / Magic Context compatibility mode.
 
 If the project uses OMO, oh-my-openagent, or oh-my-opencode:
 - Install Aegis Trail Lite.

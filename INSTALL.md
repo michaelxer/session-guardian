@@ -5,7 +5,7 @@ Aegis Trail is installed by an LLM coding agent because every harness stores ins
 Source repository:
 
 ```text
-https://github.com/michaelxer/session-guardian
+https://github.com/michaelxer/aegis-trail
 ```
 
 ## Recommended Install Method
@@ -14,10 +14,10 @@ Paste this into your coding agent from the target project:
 
 ```text
 Install and configure Aegis Trail by following the instructions here:
-https://raw.githubusercontent.com/michaelxer/session-guardian/refs/heads/master/INSTALL.md
+https://raw.githubusercontent.com/michaelxer/aegis-trail/refs/heads/main/INSTALL.md
 
 Use this public repository as the source of truth:
-https://github.com/michaelxer/session-guardian
+https://github.com/michaelxer/aegis-trail
 
 Fetch and read these Aegis Trail files from the public repository before editing the target project:
 - README.md
@@ -68,6 +68,16 @@ After installation, tell me which edition was installed, which files changed, an
 Magic Context is an upstream CortexKit project: https://github.com/cortexkit/magic-context
 
 Aegis Trail does not ship Magic Context. Install and update Magic Context from CortexKit upstream when you need context and memory support.
+
+Aegis Trail's LLM install prompt does not install Magic Context automatically by default. If Magic Context is not already present, the installer should not copy or vendor it, and should not run Magic Context setup unless the user explicitly asks for that separate upstream installation.
+
+Recommended opencode workflow:
+
+1. Install Magic Context from CortexKit upstream if you want memory/context support.
+2. Confirm the project has Magic Context configuration or plugin entries, such as `magic-context.jsonc`, `.opencode/magic-context.jsonc`, or `@cortexkit/opencode-magic-context`.
+3. Run the Aegis Trail LLM install prompt from the same target project.
+4. Let Aegis Trail detect Magic Context and install Lite / Magic Context compatibility mode.
+5. Keep Magic Context responsible for context and memory, and keep Aegis Trail responsible for git checkpoints, secrets, fallback handoff, and push safety.
 
 When Magic Context is active, Aegis Trail should not add competing context-management instructions. Do not add Standalone context heuristics, duplicate compaction rules, or instructions that fight Magic Context's historian, dreamer, recall, or compaction replacement behavior.
 

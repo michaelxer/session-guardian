@@ -10,6 +10,8 @@ Aegis Trail handles a different lane: local git checkpoints, secret-safe staging
 
 Do not copy, vendor, fork, or replace Magic Context as part of a normal Aegis Trail install.
 
+Aegis Trail's LLM install prompt does not install Magic Context automatically by default. It only detects Magic Context when it is already present and then installs Aegis Trail compatibility rules.
+
 Use CortexKit upstream for Magic Context:
 
 ```text
@@ -62,6 +64,18 @@ When installing Aegis Trail into a Magic Context project:
 4. Do not edit Magic Context package files, generated files, `node_modules/`, or hidden agent internals.
 5. Add missing safe ignore rules from `templates/gitignore-additions.txt`.
 6. Keep auto-push disabled unless the user explicitly approves it for the current repo.
+
+## Opencode Workflow
+
+For opencode, use this order when you want both tools:
+
+1. Install Magic Context from CortexKit upstream using its official setup flow.
+2. Confirm Magic Context is visible to the project through `magic-context.jsonc`, `.opencode/magic-context.jsonc`, or an `opencode.json` plugin entry for `@cortexkit/opencode-magic-context`.
+3. Run the Aegis Trail LLM install prompt from the same project.
+4. The agent should detect Magic Context and install Aegis Trail Lite / Magic Context compatibility mode.
+5. The agent should not install Aegis Trail Standalone context heuristics.
+
+If Magic Context is not installed yet, Aegis Trail should not silently install it. The agent may offer the user the upstream Magic Context setup as a separate step, but should only run it after explicit approval.
 
 ## Secret Rules For Memory
 

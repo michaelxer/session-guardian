@@ -70,6 +70,8 @@ Use the rescue prompt when a session already lost context. The next agent should
 
 Installation is intentionally done by an LLM coding agent, not by a fragile shell script or `npx` package.
 
+Aegis Trail does not install Magic Context automatically by default. For opencode projects that need memory/context support, install Magic Context from CortexKit upstream first, then run the Aegis Trail install prompt so the agent detects Magic Context and installs Lite/compatibility mode.
+
 Paste the install prompt from `prompts/install-with-llm-agent.md` into the agent that manages your target project. The agent should read this public repository first, detect your environment, and install the right edition into the correct project instruction file.
 
 Recommended defaults:
@@ -93,10 +95,10 @@ Paste this into your LLM coding agent session from the project you want to prote
 
 ```text
 Install and configure Aegis Trail by following the instructions here:
-https://raw.githubusercontent.com/michaelxer/session-guardian/refs/heads/master/INSTALL.md
+https://raw.githubusercontent.com/michaelxer/aegis-trail/refs/heads/main/INSTALL.md
 
 Use this public repository as the source of truth:
-https://github.com/michaelxer/session-guardian
+https://github.com/michaelxer/aegis-trail
 
 Fetch and read the relevant files from that repository before editing this project, especially README.md, INSTALL.md, versions/aegis-trail-lite.md, versions/aegis-trail-standalone.md, docs/magic-context-compatibility.md, docs/update-safety.md, examples/harness-install-examples.md, and templates/gitignore-additions.txt.
 
