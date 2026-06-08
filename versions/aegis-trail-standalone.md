@@ -1,8 +1,10 @@
-# Session Guardian Standalone
+# Aegis Trail Standalone
 
-Session Guardian Standalone is the original full lifecycle version. Use it for Codex CLI, VS Code agents, Cursor, vanilla agents, or any setup that does not already provide OMO-style task persistence, context recovery, and handoff workflows.
+Aegis Trail Standalone is the full lifecycle version. Use it for Codex CLI, VS Code agents, Cursor, vanilla agents, or any setup that does not already provide OMO-style task persistence, Magic Context-style memory/context management, context recovery, and handoff workflows.
 
 Standalone is larger than Lite because it carries its own session lifecycle rules.
+
+Do not use Standalone when Magic Context by CortexKit is active. Use Aegis Trail Lite / Magic Context compatibility mode instead, so Magic Context can own context, memory, recall, historian/dreamer behavior, and compaction replacement.
 
 ## 0. Session Definition
 
@@ -81,6 +83,8 @@ Never commit:
 - local databases
 - exports, imports, backups, or logs with private content
 
+If Magic Context is active later, also never store these values in `ctx_memory`, `ctx_note`, summaries, prompts, or handoffs.
+
 Use public-safe templates instead:
 
 ```text
@@ -124,6 +128,8 @@ logs/
 Only commit sample files if they contain fake/demo data.
 
 ## 5. Context Monitoring
+
+Skip this section when Magic Context or another context manager is active. The active context manager should own context usage, compaction replacement, recall, and memory.
 
 If the harness provides exact context usage, use the exact percentage.
 
@@ -270,7 +276,7 @@ It may run only when all conditions are true:
 Prefer pushing to a private checkpoint branch:
 
 ```text
-guardian/checkpoints
+aegis/checkpoints
 ```
 
 Never auto-push to `main` unless explicitly approved.

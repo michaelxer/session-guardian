@@ -1,4 +1,4 @@
-# /guardian-handoff
+# /aegis-handoff
 
 Use this workflow before stopping after meaningful project work or when context is getting risky.
 
@@ -6,7 +6,7 @@ Use this workflow before stopping after meaningful project work or when context 
 
 Save enough state for a fresh agent session to resume safely.
 
-## OMO-Aware Mode
+## Lifecycle-Aware Mode
 
 If OMO is active, prefer OMO `/handoff` and include relevant OMO state:
 
@@ -19,9 +19,11 @@ If OMO is active, prefer OMO `/handoff` and include relevant OMO state:
 
 Do not modify OMO internals.
 
+If Magic Context is active, let Magic Context own durable memory and recall. Use this handoff as a portable fallback and do not write secrets or private customer data into `ctx_memory`, `ctx_note`, summaries, prompts, or handoff files.
+
 ## Portable Mode
 
-If using portable Guardian handoffs, write to:
+If using portable Aegis Trail handoffs, write to:
 
 ```text
 HANDOFF_DOC/handoff-NNN.md

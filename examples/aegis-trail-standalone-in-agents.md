@@ -1,11 +1,13 @@
-# Example: Guardian Standalone In AGENTS.md
+# Example: Aegis Trail Standalone In AGENTS.md
 
-Use this as a model for Codex CLI, VS Code agent workflows, Cursor, Claude-style agents, vanilla opencode, or another agent that does not already provide OMO-style continuity.
+Use this as a model for Codex CLI, VS Code agent workflows, Cursor, Claude-style agents, vanilla opencode, or another agent that does not already provide OMO-style continuity or Magic Context-style memory/context management.
 
 ```md
-## Session Guardian Standalone
+## Aegis Trail Standalone
 
-Session Guardian Standalone is active for this project.
+Aegis Trail Standalone is active for this project.
+
+Do not use this Standalone policy when Magic Context by CortexKit is active. Use Aegis Trail Lite / Magic Context compatibility mode instead.
 
 Never let meaningful project work end without a recovery anchor. Prefer a local git commit plus a handoff file when a git repo exists.
 
@@ -22,7 +24,7 @@ After completing meaningful work:
 
 Before stopping after meaningful work, create or update one handoff file for the session at `HANDOFF_DOC/handoff-NNN.md`. Include the user request, goal, completed work, pending work, git state, key files, decisions, blockers, and the exact continuation prompt.
 
-Never write real secrets into source files, handoff files, plans, summaries, prompts, or commits. Store private values only in ignored local files such as `.env`, `.credentials/`, or `private/`.
+Never write real secrets into source files, handoff files, plans, summaries, prompts, commits, or memory tools. Store private values only in ignored local files such as `.env`, `.credentials/`, or `private/`.
 
-If context is lost, run Guardian rescue: read the latest handoff, inspect git status, inspect recent commits, inspect uncommitted diffs, reconstruct the last completed task and next pending task, then continue from the safest resume point.
+If context is lost, run Aegis rescue: read the latest handoff, inspect git status, inspect recent commits, inspect uncommitted diffs, reconstruct the last completed task and next pending task, then continue from the safest resume point.
 ```

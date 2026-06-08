@@ -1,4 +1,4 @@
-# Session Guardian
+# Aegis Trail
 HANDOFF_DOC/
 
 # Secrets and credentials

@@ -1,4 +1,4 @@
-# /guardian-checkpoint
+# /aegis-checkpoint
 
 Use this workflow after completing meaningful project work.
 
@@ -44,7 +44,7 @@ Also check for project-specific private names, domains, emails, customer data, a
 ## Commit Message Examples
 
 ```text
-docs: add guardian lite rules
-chore: add session checkpoint policy
+docs: add aegis trail lite rules
+chore: add agent checkpoint policy
 fix: protect local credentials from git
 ```
