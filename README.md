@@ -6,13 +6,15 @@ Aegis Trail is a docs-first prompt kit for AI coding agents. It keeps coding ses
 
 It is installed as project-level guidance beside systems like OMO, opencode, Codex CLI, Cursor, Claude-style agents, VS Code agent workflows, and memory/context engines. It does not patch agent internals or package-managed files.
 
-## Magic Context Credit
+## Compatibility Credits
 
 Aegis Trail is designed to complement [Magic Context by CortexKit](https://github.com/cortexkit/magic-context).
 
 Magic Context handles self-managing context, project memory, recall, historian/dreamer behavior, and compaction replacement. Aegis Trail handles local checkpoint safety, secret-safe staging and commits, no-auto-push policy, fallback handoffs, and rescue discipline.
 
-Aegis Trail does not vendor, copy, fork, or replace Magic Context by default. If you want context and memory support, install Magic Context from CortexKit upstream and then add Aegis Trail compatibility rules on top.
+Aegis Trail also works beside OMO / oh-my-openagent / oh-my-opencode. OMO handles agent orchestration, tasks, handoff, compaction, and continuation in OMO projects. Aegis Trail Lite complements it with git checkpoint discipline, secret safety, and no-auto-push defaults.
+
+Aegis Trail does not vendor, copy, fork, or replace Magic Context or OMO by default. If you want context, memory, or orchestration support, install those tools from their upstream projects and then add Aegis Trail compatibility rules on top.
 
 ## Editions
 

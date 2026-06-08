@@ -105,6 +105,8 @@ If Magic Context reports a setup conflict, use Magic Context's upstream setup or
 
 For OMO, install Aegis Trail Lite only.
 
+OMO / oh-my-openagent / oh-my-opencode handles agent orchestration, tasks, handoff, compaction, and continuation in OMO projects. Aegis Trail Lite complements it with git checkpoint discipline, secret safety, and no-auto-push defaults.
+
 OMO already provides:
 
 - compaction and context-window recovery
