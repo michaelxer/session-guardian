@@ -1,0 +1,26 @@
+# Local Session Guardian state
+HANDOFF_DOC/
+
+# Secrets and credentials
+.credentials/
+private/
+.env
+.env.*
+!.env.example
+
+# Runtime data and local outputs
+data/
+*.db
+*.sqlite
+*.sqlite3
+exports/
+backups/
+cache/
+temp/
+logs/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

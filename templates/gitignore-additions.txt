@@ -1,0 +1,45 @@
+# Session Guardian
+HANDOFF_DOC/
+
+# Secrets and credentials
+.credentials/
+private/
+.env
+.env.*
+!.env.example
+
+# Local databases and runtime data
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Local imports/exports/backups/logs/cache
+imports_original/
+exports/
+backups/
+cache/
+temp/
+logs/
+local_profiles/
+local_imports/
+local_exports/
+local_backups/
+
+# Common private data files
+*.xlsx
+*.xls
+*.csv
+*.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
