@@ -28,6 +28,12 @@ Standalone is not the "better" edition. It is the self-contained edition for env
 
 ## Why This Exists
 
+Imagine a careful builder repairing your house. They open the wall, move wires, find a leak, leave halfway through, and another builder arrives tomorrow. If there is no job note, the new builder has to guess what was changed, what is safe, what is unfinished, and why the first builder made those choices.
+
+AI coding sessions fail in the same ordinary way. The agent may be doing good work, then the chat gets long, the context window fills up, a tool fails, the browser refreshes, or a different agent takes over. Without a written handoff, the next session has to reconstruct the story from scattered chat messages and file diffs. That is when work gets repeated, good changes get reversed, secrets get copied into the wrong place, or the agent confidently continues from the wrong assumption.
+
+Aegis Trail treats handoff documentation like the job notebook for the project. At meaningful stopping points, it asks the agent to leave a numbered local handoff that says what changed, why it changed, what was checked, what is still pending, and how the next session should resume. Older handoffs stay in order, so they become a trackback history when you need to understand when a decision happened or where a mistake entered the work.
+
 Long agent sessions often fail in a predictable way:
 
 ```text
@@ -36,12 +42,14 @@ long session -> no handoff -> no commit -> context error -> lost working state
 
 Aegis Trail creates recovery anchors before that happens:
 
-| Recovery Anchor | What It Protects |
-| --- | --- |
-| Local git commit | Code and file changes survive context loss. |
-| Handoff file | The next agent knows what happened and where to resume, while older numbered handoffs remain a trackback history for debugging wrong changes and decisions. |
-| Secret scan | Private data is not accidentally committed, memorized, or pushed. |
-| Rescue protocol | A new session can reconstruct state from git, handoff files, task state, and available memory/context tools. |
+| Recovery Anchor | Plain Meaning | Technical Meaning |
+| --- | --- | --- |
+| Local git commit | The finished work is saved in a recoverable checkpoint. | Code and file changes survive context loss and can be inspected with normal git tools. |
+| Numbered handoff file | The next agent gets the job notebook instead of guessing. | `HANDOFF_DOC/handoff-NNN.md` records completed work, pending work, decisions, git state, verification, and resume prompts. |
+| Secret scan | Private information is kept out of the public trail. | Staged content is checked before commits, handoffs, memory notes, or pushes can capture credentials or private data. |
+| Rescue protocol | A new session has a safe way to restart. | The agent reconstructs state from git, handoff files, task state, and available memory/context tools. |
+
+This is why Aegis Trail complements Magic Context instead of replacing it. Magic Context is the memory and context layer: it helps the agent remember, recall, summarize, and survive compaction. Aegis Trail is the safety and evidence layer: it keeps concrete local checkpoints, numbered handoff history, secret rules, and no-auto-push discipline outside the chat window. Memory helps the agent think; the handoff trail helps the next agent verify what really happened.
 
 ## Common Scenarios
 
