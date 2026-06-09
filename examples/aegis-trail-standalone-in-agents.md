@@ -7,7 +7,7 @@ Use this as a model for Codex CLI, VS Code agent workflows, Cursor, Claude-style
 
 Aegis Trail Standalone is active for this agent environment. When working inside a project, apply these rules to that project.
 
-Do not use this Standalone policy when Magic Context by CortexKit is active. Use Aegis Trail Lite / Magic Context compatibility mode instead.
+Do not use this Standalone policy when Magic Context by CortexKit is active. Use Aegis Trail Lite + Magic Context Compatibility instead.
 
 Never let meaningful project work end without a recovery anchor. Prefer a local git commit plus a handoff file when a git repo exists.
 

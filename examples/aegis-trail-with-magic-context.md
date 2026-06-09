@@ -3,9 +3,9 @@
 Use this as a model for global/user agent instructions when [Magic Context by CortexKit](https://github.com/cortexkit/magic-context) is installed. It can also be used as a project-level override when explicitly requested or when the harness has no usable global instruction target.
 
 ```md
-## Aegis Trail Magic Context Compatibility
+## Aegis Trail Lite + Magic Context Compatibility
 
-Aegis Trail is active in Magic Context compatibility mode.
+Aegis Trail Lite is active with Magic Context compatibility boundaries.
 
 Magic Context by CortexKit owns context management, project memory, recall, historian/dreamer behavior, and compaction replacement. Keep Magic Context installed and updated from CortexKit upstream. Do not copy, vendor, fork, replace, or patch Magic Context from Aegis Trail.
 

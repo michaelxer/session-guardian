@@ -10,7 +10,7 @@ Do not offer Magic Context as a normal setup choice for every harness. CortexKit
 
 ## Magic Context By CortexKit
 
-Recommended edition: Aegis Trail Lite / Magic Context compatibility mode.
+Recommended edition/profile: Aegis Trail Lite + Magic Context Compatibility.
 
 Preferred install target:
 
@@ -21,13 +21,13 @@ Global/user instruction file for the active Magic Context harness
 Use this prompt from an agent session that can edit global/user instructions:
 
 ```text
-Install Aegis Trail Lite / Magic Context compatibility mode globally for this agent environment. Read the Aegis Trail repo first. Keep Magic Context by CortexKit responsible for context management, memory, recall, historian/dreamer behavior, and compaction replacement. Do not install Aegis Trail Standalone context heuristics. Do not copy, vendor, fork, replace, or patch Magic Context. Add Aegis Trail rules for local git checkpoints, secret-safe staging and commits, no-auto-push defaults, a numbered per-project HANDOFF_DOC/handoff-NNN.md trackback trail, and rescue discipline. Never write real secrets or private customer data into ctx_memory, ctx_note, summaries, prompts, handoffs, or commits. Do not edit the current repo, create a repo, commit, or push installation changes unless I explicitly ask.
+Install Aegis Trail Lite + Magic Context Compatibility globally for this agent environment. Read the Aegis Trail repo first. Keep Magic Context by CortexKit responsible for context management, memory, recall, historian/dreamer behavior, and compaction replacement. Do not install Aegis Trail Standalone context heuristics. Do not copy, vendor, fork, replace, or patch Magic Context. Add Aegis Trail Lite safety rules for local git checkpoints, secret-safe staging and commits, no-auto-push defaults, a numbered per-project HANDOFF_DOC/handoff-NNN.md trackback trail, and rescue discipline. Never write real secrets or private customer data into ctx_memory, ctx_note, summaries, prompts, handoffs, or commits. Do not edit the current repo, create a repo, commit, or push installation changes unless I explicitly ask.
 ```
 
 Expected result:
 
 ```text
-Aegis Trail Lite / Magic Context compatibility mode installed in global/user instructions.
+Aegis Trail Lite + Magic Context Compatibility installed in global/user instructions.
 Magic Context remains the context and memory manager.
 Aegis Trail adds per-project checkpoint, secret, numbered handoff history, and push-safety discipline when operating in repos.
 ```

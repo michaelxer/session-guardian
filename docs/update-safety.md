@@ -63,7 +63,7 @@ After updating Magic Context:
 
 1. Run Magic Context's upstream setup or doctor workflow if needed.
 2. Confirm Magic Context still owns context management, memory, recall, historian/dreamer behavior, and compaction replacement.
-3. Confirm Aegis Trail Lite / Magic Context compatibility mode is still present in global/user instructions.
+3. Confirm Aegis Trail Lite + Magic Context Compatibility is still present in global/user instructions.
 4. Confirm no Aegis Trail Standalone context heuristics were added on top of Magic Context.
 5. Confirm Aegis Trail still says not to push by default.
 6. Confirm the project rules forbid secrets in `ctx_memory`, `ctx_note`, summaries, prompts, handoffs, and commits.

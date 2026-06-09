@@ -4,7 +4,7 @@ Aegis Trail Standalone is the full lifecycle version. Use it for Codex CLI, VS C
 
 Standalone is larger than Lite because it carries its own session lifecycle rules.
 
-Do not use Standalone when Magic Context by CortexKit is active. Use Aegis Trail Lite / Magic Context compatibility mode instead, so Magic Context can own context, memory, recall, historian/dreamer behavior, and compaction replacement.
+Do not use Standalone when Magic Context by CortexKit is active. Use Aegis Trail Lite + Magic Context Compatibility instead, so Magic Context can own context, memory, recall, historian/dreamer behavior, and compaction replacement.
 
 ## 0. Session Definition
 

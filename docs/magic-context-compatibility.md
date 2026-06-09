@@ -40,7 +40,7 @@ Treat Magic Context as active when any of these are present:
 - an `opencode.json` plugin entry for `@cortexkit/opencode-magic-context`
 - Magic Context commands or tools such as `/ctx-status`, `ctx_memory`, `ctx_note`, `ctx_search`, or `ctx_expand`
 
-When Magic Context is detected, install Aegis Trail Lite / Magic Context compatibility mode. Do not install Aegis Trail Standalone context heuristics.
+When Magic Context is detected, install Aegis Trail Lite + Magic Context Compatibility. Do not install Aegis Trail Standalone context heuristics.
 
 ## Division Of Responsibility
 
@@ -74,7 +74,7 @@ For opencode, use this order when you want both tools:
 1. Set up Magic Context from CortexKit upstream using its official OpenCode/Pi setup flow.
 2. Confirm Magic Context is visible through user-level plugin/config entries or project configuration such as `magic-context.jsonc`, `.opencode/magic-context.jsonc`, or an `opencode.json` plugin entry for `@cortexkit/opencode-magic-context`.
 3. Run the Aegis Trail LLM install prompt from an agent session that can edit global/user instructions.
-4. The agent should detect Magic Context and install Aegis Trail Lite / Magic Context compatibility mode in the global/user instruction file.
+4. The agent should detect Magic Context and install Aegis Trail Lite + Magic Context Compatibility in the global/user instruction file.
 5. The agent should not install Aegis Trail Standalone context heuristics.
 
 If Magic Context is not installed yet, Aegis Trail should not silently install it. The agent may offer the user the upstream Magic Context setup as a separate step, but should only run it after explicit approval.
