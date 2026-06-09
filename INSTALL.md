@@ -1,6 +1,8 @@
 # Installing Aegis Trail
 
-Aegis Trail is installed by an LLM coding agent because every harness stores instructions differently. The agent should read the public Aegis Trail repository, detect the active environment, ask the required scenario-specific setup questions, and place the correct Aegis Trail edition in a project-level instruction file only after the user answers.
+Aegis Trail is installed by an LLM coding agent because every harness stores instructions differently. The public Aegis Trail repository is the global/latest source of truth, so the agent should fetch it instead of trusting an old local install. Normal Aegis Trail installation still writes rules into the target project's instruction file; it should not edit global agent or harness config unless the user explicitly asks for that separate setup.
+
+The agent should read the public Aegis Trail repository, detect the active environment, ask the required scenario-specific setup questions, and place the correct Aegis Trail edition in a project-level instruction file only after the user answers.
 
 Source repository:
 
@@ -42,6 +44,8 @@ Fetch and read these Aegis Trail files from the public repository before editing
 
 Ask questions in chat like an agent-guided installer. Do not edit files before the required questions are answered. After the answers are complete, start the Aegis Trail install immediately instead of asking another generic confirmation.
 
+Do not ask about git commits, pushes, or repo creation during a normal install. Those are not setup choices. Only discuss them if the user already asked for that separate git action.
+
 ### Step 0: Detect And Report
 
 After reading the source files and inspecting the target project, report what was detected:
@@ -49,6 +53,7 @@ After reading the source files and inspecting the target project, report what wa
 ```text
 I checked this project and found:
 
+- Aegis Trail source: public global repo at https://github.com/michaelxer/aegis-trail
 - Harness: <OpenCode, Pi, Codex CLI, VS Code agent, Cursor, Claude-style agent, or unknown>
 - Instruction target: <existing instruction file or file to create>
 - OMO: <detected or not detected>
@@ -188,7 +193,7 @@ I have the needed answers:
 I will install Aegis Trail now using these choices.
 ```
 
-Then edit files, verify the install, check diffs for obvious mistakes, commit only if the user explicitly requested it or project policy requires it, and never push unless explicitly approved.
+Then edit files, verify the install, and check diffs for obvious mistakes. Do not create a repo, commit, or push as part of normal installation unless the user explicitly requested that separate git action.
 
 ## Install Rules
 
@@ -214,20 +219,21 @@ After installation, tell me which edition was installed, which files changed, an
 ## What The Agent Should Do
 
 1. Detect whether a project instruction file exists, such as `AGENTS.md`, `CLAUDE.md`, `CODEX.md`, or a harness-specific rules file.
-2. Detect whether Magic Context is active by looking for `magic-context.jsonc`, `.opencode/magic-context.jsonc`, `@cortexkit/opencode-magic-context`, `@cortexkit/magic-context`, `@cortexkit/pi-magic-context`, or an `opencode.json` plugin entry for Magic Context.
-3. Detect whether OMO / oh-my-openagent / oh-my-opencode or another strong continuity layer is active.
-4. Choose the edition.
-5. Use Aegis Trail Lite / Magic Context compatibility mode when Magic Context is active.
-6. Use Aegis Trail Lite when OMO or another strong continuity layer is active.
-7. Use Aegis Trail Standalone when no continuity/context layer is active or the user wants the full original workflow.
-8. Ask the required guided questions and wait for the user's answers before editing.
-9. If the user chooses to set up Magic Context first, pause the Aegis Trail install and handle Magic Context only as a separate upstream harness/user-level setup with explicit approval.
-10. Add the selected Aegis Trail text to the project instruction file after the required answers are complete.
-11. Add missing `.gitignore` entries from `templates/gitignore-additions.txt`.
-12. Do not place real credentials in any tracked file or Magic Context memory/note.
-13. Do not create a git repo unless the user asks.
-14. If a git repo exists, commit only intentional Aegis Trail installation files after checking for secrets when the user requested a commit or the target project's policy requires it.
-15. Report which edition was installed, which instruction file changed, and how the user should ask for checkpoint, handoff, and rescue behavior.
+2. Treat the public Aegis Trail repository as the source of truth; do not copy rules forward from an old local Aegis Trail install unless they match the fetched source.
+3. Detect whether Magic Context is active by looking for `magic-context.jsonc`, `.opencode/magic-context.jsonc`, `@cortexkit/opencode-magic-context`, `@cortexkit/magic-context`, `@cortexkit/pi-magic-context`, or user/project OpenCode or Pi plugin entries for Magic Context.
+4. Detect whether OMO / oh-my-openagent / oh-my-opencode or another strong continuity layer is active.
+5. Choose the edition.
+6. Use Aegis Trail Lite / Magic Context compatibility mode when Magic Context is active.
+7. Use Aegis Trail Lite when OMO or another strong continuity layer is active.
+8. Use Aegis Trail Standalone when no continuity/context layer is active or the user wants the full original workflow.
+9. Ask the required guided questions and wait for the user's answers before editing.
+10. If the user chooses to set up Magic Context first, pause the Aegis Trail install and handle Magic Context only as a separate upstream harness/user-level setup with explicit approval.
+11. Add the selected Aegis Trail text to the project instruction file after the required answers are complete.
+12. Add missing `.gitignore` entries from `templates/gitignore-additions.txt`.
+13. Do not place real credentials in any tracked file or Magic Context memory/note.
+14. Do not create a git repo unless the user asks.
+15. If the user explicitly requested an installation commit, stage only intentional Aegis Trail installation files and check staged content for secrets before committing.
+16. Report which edition was installed, which instruction file changed, and how the user should ask for checkpoint, handoff, and rescue behavior.
 
 ## Magic Context Installation Notes
 

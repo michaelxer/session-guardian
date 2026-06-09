@@ -2,7 +2,7 @@
 
 Aegis Trail is designed to complement [Magic Context by CortexKit](https://github.com/cortexkit/magic-context), not replace it.
 
-Magic Context describes itself as self-managing context and memory for coding agents. It handles context management, project memory, recall, historian/dreamer behavior, and compaction replacement. Its upstream setup currently documents OpenCode and Pi harness support.
+Magic Context describes itself as self-managing context and memory for coding agents. It handles context management, project memory, recall, historian/dreamer behavior, and compaction replacement. Its upstream setup currently documents OpenCode and Pi harness support. That setup is user/harness-level and can serve multiple projects through Magic Context's shared store, with optional per-project config overrides.
 
 Aegis Trail handles a different lane: local git checkpoints, secret-safe staging and commits, no-auto-push policy, numbered portable handoff history, and rescue discipline.
 
@@ -12,7 +12,7 @@ Do not copy, vendor, fork, or replace Magic Context as part of a normal Aegis Tr
 
 Aegis Trail's LLM install prompt does not install Magic Context automatically by default. It only detects Magic Context when it is already present and then installs Aegis Trail compatibility rules.
 
-If Magic Context is not detected in an OpenCode or Pi project, the Aegis Trail installer should say so in its guided questions before editing. The user can then proceed without Magic Context, stop, or explicitly ask for a separate upstream Magic Context setup first. For Codex CLI, VS Code agents, Cursor, Claude-style agents, or other non-OpenCode/non-Pi harnesses, do not offer Magic Context as a normal setup choice unless the user explicitly asks to check CortexKit upstream first.
+If Magic Context is not detected for an OpenCode or Pi project, the Aegis Trail installer should say so in its guided questions before editing. The user can then proceed without Magic Context, stop, or explicitly ask for a separate upstream Magic Context user/harness setup first. For Codex CLI, VS Code agents, Cursor, Claude-style agents, or other non-OpenCode/non-Pi harnesses, do not offer Magic Context as a normal setup choice unless the user explicitly asks to check CortexKit upstream first.
 
 Use CortexKit upstream for Magic Context:
 
@@ -60,7 +60,7 @@ When Magic Context is detected, install Aegis Trail Lite / Magic Context compati
 
 When installing Aegis Trail into a Magic Context project:
 
-1. Keep Magic Context installed from CortexKit upstream.
+1. Keep Magic Context installed from CortexKit upstream as the user/harness-level context layer.
 2. Install `versions/aegis-trail-lite.md` or the example in `examples/aegis-trail-with-magic-context.md` into the active project instruction file.
 3. Do not install `versions/aegis-trail-standalone.md` unless the user explicitly wants duplicate manual lifecycle rules.
 4. Do not edit Magic Context package files, generated files, `node_modules/`, or hidden agent internals.
@@ -71,10 +71,10 @@ When installing Aegis Trail into a Magic Context project:
 
 For opencode, use this order when you want both tools:
 
-1. Install Magic Context from CortexKit upstream using its official setup flow.
-2. Confirm Magic Context is visible to the project through `magic-context.jsonc`, `.opencode/magic-context.jsonc`, or an `opencode.json` plugin entry for `@cortexkit/opencode-magic-context`.
-3. Run the Aegis Trail LLM install prompt from the same project.
-4. The agent should detect Magic Context and install Aegis Trail Lite / Magic Context compatibility mode.
+1. Set up Magic Context from CortexKit upstream using its official OpenCode/Pi setup flow.
+2. Confirm Magic Context is visible through user-level plugin/config entries or project configuration such as `magic-context.jsonc`, `.opencode/magic-context.jsonc`, or an `opencode.json` plugin entry for `@cortexkit/opencode-magic-context`.
+3. Run the Aegis Trail LLM install prompt from the target project.
+4. The agent should detect Magic Context and install Aegis Trail Lite / Magic Context compatibility mode in that project's instruction file.
 5. The agent should not install Aegis Trail Standalone context heuristics.
 
 If Magic Context is not installed yet, Aegis Trail should not silently install it. The agent may offer the user the upstream Magic Context setup as a separate step, but should only run it after explicit approval.
