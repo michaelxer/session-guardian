@@ -159,28 +159,18 @@ Question 3: Which project instruction file should I update?
 3. Stop with no changes.
 ```
 
-### Step 4: Ask Git Behavior Only If Needed
+### Step 4: Use Safe Git Defaults Without Asking
 
-If no git repo exists:
+Do not ask a routine git behavior question during a normal Aegis Trail install. Installing Aegis Trail means editing the target project's instruction file and missing ignore rules only.
 
-```text
-Question 4: This project is not a git repo. What should I do?
+Default behavior:
 
-1. Install Aegis Trail without creating a git repo. Recommended.
-2. Stop and let me create a git repo first.
-3. Create a git repo for me. Only choose this if you want that.
-4. Stop with no changes.
-```
+- If no git repo exists, install Aegis Trail without creating a repo.
+- If a git repo exists, install Aegis Trail without committing.
+- Never push installation changes.
+- Report changed files and verification results after the install.
 
-If a git repo exists:
-
-```text
-Question 4: This project is already a git repo. How should I handle the installation changes?
-
-1. Install only, do not commit.
-2. Install and commit the Aegis Trail installation after checking staged content for secrets.
-3. Stop with no changes.
-```
+Ask about git only when the user explicitly requested a git action and the request is ambiguous, such as creating a repo, committing the installation, or pushing. Do not turn commit or push into a normal install choice.
 
 ### Step 5: Install Immediately After Answers
 
@@ -192,13 +182,13 @@ I have the needed answers:
 - Magic Context choice: <set up upstream harness/user layer first, continue without it, already active, or not applicable>
 - Aegis Trail edition: <selected edition>
 - Instruction target: <file>
-- Git behavior: <selected behavior>
+- Git behavior: install only by default; no repo creation, commit, or push unless explicitly requested
 - Expected changes: <files>
 
 I will install Aegis Trail now using these choices.
 ```
 
-Then edit files, verify the install, check diffs and secrets, commit only if requested or required by project policy, and never push unless explicitly approved.
+Then edit files, verify the install, check diffs for obvious mistakes, commit only if the user explicitly requested it or project policy requires it, and never push unless explicitly approved.
 
 ## Install Rules
 
